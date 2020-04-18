@@ -24,8 +24,8 @@ public class AuthClient {
 		IpDetails ipDetails = ipDetailsClass.getIpDetails();
 		API = ipDetails.getUserIP();
 		DoctorIP = ipDetails.getHospitalIP();
-	}	
-	
+	}
+
 	public final String AuthChecker(String authToken) {
 		System.out.println(API);
 		WebTarget service = client.target(API).path("check").queryParam("token", authToken);
@@ -33,57 +33,69 @@ public class AuthClient {
 			String response = service.request(MediaType.APPLICATION_JSON).get(String.class);
 			return response;
 		} catch (ProcessingException e) {
-			 Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-			 return null;
+			Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+			return null;
 		}
 	}
-	
-	//get doctor Id
+
+	// get doctor Id
 	public final String GetDoctotrId(String userId) {
 		WebTarget service = client.target(DoctorIP).path("doctor").queryParam("id", userId);
 		try {
 			String response = service.request(MediaType.APPLICATION_JSON).get(String.class);
 			return response;
 		} catch (ProcessingException e) {
-			 Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-			 return null;
+			Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+			return null;
 		}
 	}
-	
-	//Get Appointments for a given doctor ID
+
+	// Get Appointments for a given doctor ID
 	public final String GetAppointmentId(String userId) {
 		WebTarget service = client.target(AppointmentIP).path("appoiment").queryParam("id", userId);
 		try {
 			String response = service.request(MediaType.APPLICATION_JSON).get(String.class);
 			return response;
 		} catch (ProcessingException e) {
-			 Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-			 return null;
+			Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+			return null;
 		}
 	}
-	
-	//Get Lab Appointments for a given laboratory ID 
+
+	// Get Lab Appointments for a given laboratory ID
 	public final String GetLabAppointmentId(String userId) {
 		WebTarget service = client.target(AppointmentIP).path("appoiment").queryParam("id", userId);
 		try {
 			String response = service.request(MediaType.APPLICATION_JSON).get(String.class);
 			return response;
 		} catch (ProcessingException e) {
-			 Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-			 return null;
+			Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+			return null;
 		}
 	}
-	
-	//Get Appointments for a payment
+
+	// Get Hospital Appointments for a given Hospital ID
+	public final String GetHospitalAppointmentId(String userId) {
+		WebTarget service = client.target(AppointmentIP).path("appoiment").queryParam("id", userId);
+		try {
+			String response = service.request(MediaType.APPLICATION_JSON).get(String.class);
+			return response;
+		} catch (ProcessingException e) {
+			Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+			return null;
+		}
+	}
+
+	// Get Appointments for a payment
 	public final String GetPaymentsId(String userId) {
 		WebTarget service = client.target(AppointmentIP).path("appoiment").queryParam("id", userId);
 		try {
 			String response = service.request(MediaType.APPLICATION_JSON).get(String.class);
 			return response;
 		} catch (ProcessingException e) {
-			 Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-			 return null;
+			Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+			return null;
 		}
 	}
-	
+
 }

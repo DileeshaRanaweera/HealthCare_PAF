@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.healthcare.gatewayLabAuth;
+package com.healthcare.gatewayHospitalAuth;
 
 import javax.ws.rs.ProcessingException;
 import javax.ws.rs.client.Client;
@@ -11,31 +11,29 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.healthcare.gatewayDeatils.DoctorDetails;
+import com.healthcare.gatewayDeatils.HospitalDetails;
 import com.healthcare.gatewayDeatils.IpDetails;
 import com.healthcare.gatewayDeatils.IpDetailsClass;
-import com.healthcare.gatewayDeatils.LabDetails;
 
 /**
- * @author oshadi
+ * @author user
  *
  */
-public class LabR {
-	
+public class HospitalR {
+
 	String API;
 	Client client = ClientBuilder.newClient();
 	
-	public LabR() {
+	
+	public HospitalR() {
 		super();
 		IpDetailsClass ipDetailsClass = new IpDetailsClass();
 		IpDetails ipDetails = ipDetailsClass.getIpDetails();
-		API = ipDetails.getLabIP();
+		API = ipDetails.getHospitalIP();
 	}
 	
-	
-	
-	public final Response getLabSpecData() {
-		WebTarget service = client.target(API).path("lab");
+	public final Response getHospitalSpecData() {
+		WebTarget service = client.target(API).path("hospital");
 		try {
 			Response response = service.request(MediaType.APPLICATION_JSON).get();
 			return response;
@@ -45,14 +43,14 @@ public class LabR {
 		
 	}
 	
-	public final Response postLabDetails(LabDetails labDetails) {
-		WebTarget service = client.target(API).path("lab").path("add");
+	public final Response postHospitalDetails(HospitalDetails hospitalDetails) {
+		WebTarget service = client.target(API).path("hospital").path("add");
 		try {
-			Response response = service.request().post(Entity.json(labDetails));
+			Response response = service.request().post(Entity.json(hospitalDetails));
 			return response;
 		} catch (ProcessingException e) {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
 		}
 	}
-
+	
 }
