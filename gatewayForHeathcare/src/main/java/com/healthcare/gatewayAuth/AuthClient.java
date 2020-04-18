@@ -100,5 +100,17 @@ public class AuthClient {
 			return null;
 		}
 	}
+	
+	// Get Doctor for an Appointment
+		public final String GetDocAppointmentId(String userId) {
+			WebTarget service = client.target(DoctorIP).path("doctor").queryParam("id", userId);
+			try {
+				String response = service.request(MediaType.APPLICATION_JSON).get(String.class);
+				return response;
+			} catch (ProcessingException e) {
+				Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+				return null;
+			}
+		}
 
 }

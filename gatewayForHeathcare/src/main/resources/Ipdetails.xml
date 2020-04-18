@@ -7,7 +7,7 @@
 		<lab>http://192.168.1.100:8080/laboratory/webapi/labs</lab>
 		<payment>http://192.168.1.100:8080/HealthCare/webapi/payments</payment>
 		<hospital>http://192.168.1.100:8080/Hospital/webapi/hospitals</hospital>
-		<appoiment>http://192.168.1.100:8080</appoiment>
+		<appoiment>http://192.168.1.100:8080/HealthCare/webapi/appointsDoc</appoiment>
 		<gateway>http://192.168.1.100:8080/gatewayForHeathcare/webapi</gateway>
     </ip>   
 </class>

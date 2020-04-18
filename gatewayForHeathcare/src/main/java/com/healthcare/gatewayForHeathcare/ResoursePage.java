@@ -77,6 +77,19 @@ public class ResoursePage {
 				return null;
 			}
 		}
+		
+		@GET
+		@Path("appointments")
+		@Produces(MediaType.APPLICATION_JSON)
+		public String getAppointmentsSpecification() {
+			try {
+
+				return mycall.GetAppointmentSpecdata();
+			} catch (Exception e) {
+				System.out.println(e);
+				return null;
+			}
+		}
 	}
 
 }
