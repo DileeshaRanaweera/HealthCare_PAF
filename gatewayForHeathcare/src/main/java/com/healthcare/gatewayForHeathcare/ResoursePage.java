@@ -38,6 +38,19 @@ public class ResoursePage {
 			}
 		}
 		
+		
+		@GET
+		@Path("lab")
+		@Produces(MediaType.APPLICATION_JSON)
+		public String getLabSpecification() {
+			try {
+
+				return mycall.GetLabSpecdata();
+			} catch (Exception e) {
+				System.out.println(e);
+				return null;
+			}
+		}
 	}
 
 }

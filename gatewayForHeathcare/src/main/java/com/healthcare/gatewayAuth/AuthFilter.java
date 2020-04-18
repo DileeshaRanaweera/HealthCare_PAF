@@ -26,6 +26,7 @@ public class AuthFilter implements ContainerRequestFilter {
 	public static String CurrentAuthUserId = "0";
 	public static String CurrentAuthUserDoctorId = "0";
 	public static String CurrentAuthUserAppointmentId = "0";
+	public static String CurrentAuthUserLabAppointmentId = "0";
 
 	@Context
 	private UriInfo info;
@@ -67,9 +68,12 @@ public class AuthFilter implements ContainerRequestFilter {
 			CurrentAuth = arr[0];
 			CurrentAuthUserId = arr[1];
 			CurrentAuthUserDoctorId = this.getDoctorID(arr[1]);
-			//check this
+			//check this for user appointments for a given Doctor ID
 			CurrentAuthUserAppointmentId = this.getAppointmentID(arr[1]);
-
+			//check this for lab appointments
+			CurrentAuthUserLabAppointmentId = this.getLabAppointmentID(arr[1]);
+			
+			
 			return;
 		} else {
 			abortWithUnauthorized(requestContext, Message.Unauthorize);
@@ -105,5 +109,10 @@ public class AuthFilter implements ContainerRequestFilter {
 		return result[0];
 
 	}
+	
+	private String getLabAppointmentID(String UserID) {
+		String result[] = client.GetLabAppointmentId(UserID).split(",");
+		return result[0];
 
+	}
 }

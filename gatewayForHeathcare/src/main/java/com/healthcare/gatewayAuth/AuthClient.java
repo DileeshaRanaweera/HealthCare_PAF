@@ -49,7 +49,20 @@ public class AuthClient {
 		}
 	}
 	
+	//Get Appointments for a given doctor ID
 	public final String GetAppointmentId(String userId) {
+		WebTarget service = client.target(AppointmentIP).path("appoiment").queryParam("id", userId);
+		try {
+			String response = service.request(MediaType.APPLICATION_JSON).get(String.class);
+			return response;
+		} catch (ProcessingException e) {
+			 Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+			 return null;
+		}
+	}
+	
+	//Get Lab Appointments for a given laboratory ID 
+	public final String GetLabAppointmentId(String userId) {
 		WebTarget service = client.target(AppointmentIP).path("appoiment").queryParam("id", userId);
 		try {
 			String response = service.request(MediaType.APPLICATION_JSON).get(String.class);
