@@ -24,7 +24,8 @@ public class AuthFilter implements ContainerRequestFilter {
 	AuthClient client = new AuthClient();
 	public static String CurrentAuth = "defult";
 	public static String CurrentAuthUserId = "0";
-	public static String CuttentAuthUserDoctorId = "0";
+	public static String CurrentAuthUserDoctorId = "0";
+	public static String CurrentAuthUserAppointmentId = "0";
 
 	@Context
 	private UriInfo info;
@@ -65,7 +66,9 @@ public class AuthFilter implements ContainerRequestFilter {
 		if (!arr[0].equals("false")) {
 			CurrentAuth = arr[0];
 			CurrentAuthUserId = arr[1];
-			CuttentAuthUserDoctorId = this.getDoctorID(arr[1]);
+			CurrentAuthUserDoctorId = this.getDoctorID(arr[1]);
+			//check this
+			CurrentAuthUserAppointmentId = this.getAppointmentID(arr[1]);
 
 			return;
 		} else {
@@ -93,6 +96,12 @@ public class AuthFilter implements ContainerRequestFilter {
 	// user part doctor
 	private String getDoctorID(String UserID) {
 		String result[] = client.GetDoctotrId(UserID).split(",");
+		return result[0];
+
+	}
+	
+	private String getAppointmentID(String UserID) {
+		String result[] = client.GetAppointmentId(UserID).split(",");
 		return result[0];
 
 	}

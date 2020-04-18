@@ -26,7 +26,7 @@ public class UserClient {
 	}
 
 	public final Response getUserSpecData() {
-		WebTarget service = client.target(API).path("doc");
+		WebTarget service = client.target(API).path("user");
 		try {
 			Response response = service.request(MediaType.APPLICATION_JSON).get();
 			return response;
@@ -37,7 +37,7 @@ public class UserClient {
 	}
 
 	public final Response postUser(UserDetails details) {
-		WebTarget service = client.target(API).path("doc").path("add");
+		WebTarget service = client.target(API).path("user").path("add");
 		try {
 			Response response = service.request().post(Entity.json(details));
 			return response;

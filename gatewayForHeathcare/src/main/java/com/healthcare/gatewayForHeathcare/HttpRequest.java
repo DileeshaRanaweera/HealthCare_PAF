@@ -25,7 +25,7 @@ public class HttpRequest {
 		Request request = new Request.Builder().url(ipDetails.getDocIP())
 
 				// request headers
-				.addHeader("key-PAF", "Healthcare").addHeader("User-Profile", "Kusal").build();
+				.addHeader("key-PAF", "Healthcare").addHeader("Doctor-Profile", "Ramishka").build();
 
 		try (Response response = okHttpClient.newCall(request).execute()) {
 

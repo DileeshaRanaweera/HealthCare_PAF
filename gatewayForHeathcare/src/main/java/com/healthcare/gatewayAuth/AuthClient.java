@@ -14,6 +14,7 @@ public class AuthClient {
 
 	String API;
 	String DoctorIP;
+	String AppointmentIP;
 	Client client = ClientBuilder.newClient();
 
 	public AuthClient() {
@@ -38,7 +39,7 @@ public class AuthClient {
 	
 	//get doctor Id
 	public final String GetDoctotrId(String userId) {
-		WebTarget service = client.target(DoctorIP).path("user").queryParam("id", userId);
+		WebTarget service = client.target(DoctorIP).path("doctor").queryParam("id", userId);
 		try {
 			String response = service.request(MediaType.APPLICATION_JSON).get(String.class);
 			return response;
@@ -48,5 +49,15 @@ public class AuthClient {
 		}
 	}
 	
+	public final String GetAppointmentId(String userId) {
+		WebTarget service = client.target(AppointmentIP).path("appoiment").queryParam("id", userId);
+		try {
+			String response = service.request(MediaType.APPLICATION_JSON).get(String.class);
+			return response;
+		} catch (ProcessingException e) {
+			 Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+			 return null;
+		}
+	}
 	
 }
