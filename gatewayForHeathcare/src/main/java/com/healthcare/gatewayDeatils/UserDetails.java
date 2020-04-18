@@ -1,5 +1,8 @@
 package com.healthcare.gatewayDeatils;
-
+/**
+ * @author kusal
+ *
+ */
 public class UserDetails {
 
 	private String nic; 

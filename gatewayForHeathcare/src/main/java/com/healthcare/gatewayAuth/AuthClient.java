@@ -1,5 +1,8 @@
 package com.healthcare.gatewayAuth;
-
+/**
+ * @author kusal
+ *
+ */
 import javax.ws.rs.ProcessingException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;

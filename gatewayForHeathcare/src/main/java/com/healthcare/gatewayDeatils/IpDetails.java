@@ -1,5 +1,8 @@
 package com.healthcare.gatewayDeatils;
-
+/**
+ * @author kusal
+ *
+ */
 public class IpDetails {
 	
 	private String docIP;
