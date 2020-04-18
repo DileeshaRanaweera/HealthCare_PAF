@@ -75,6 +75,25 @@ public class HttpRequest {
 
 	}
 	
+	public String GetHospitalSpecdata() throws Exception {
+		Request request = new Request.Builder().url(ipDetails.getHospitalIP())
+
+				// request headers
+				.addHeader("key-PAF", "Healthcare").addHeader("Hospital-Profile", "Rashmika").build();
+
+		try (Response response = okHttpClient.newCall(request).execute()) {
+
+			if (!response.isSuccessful())
+				throw new IOException("Unexpected code " + response);
+
+			String responseData = response.body().string();
+			return responseData;
+
+		}
+
+	}
+	
+	
 	public String GetPaymentsSpecdata() throws Exception {
 		Request request = new Request.Builder().url(ipDetails.getPaymentIP())
 

@@ -53,6 +53,19 @@ public class ResoursePage {
 		}
 		
 		@GET
+		@Path("hospital")
+		@Produces(MediaType.APPLICATION_JSON)
+		public String getHospitalSpecification() {
+			try {
+
+				return mycall.GetHospitalSpecdata();
+			} catch (Exception e) {
+				System.out.println(e);
+				return null;
+			}
+		}
+		
+		@GET
 		@Path("payments")
 		@Produces(MediaType.APPLICATION_JSON)
 		public String getPaymentsSpecification() {

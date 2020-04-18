@@ -14,6 +14,7 @@ import com.healthcare.gatewayLabAuth.LabAuth;
 import com.healthcare.gatewayLabAuth.LabAuthAppointment;
 import com.healthcare.gatewayLabAuth.LabAuthDefault;
 import com.healthcare.gatewayLabAuth.LabAuthLab;
+import com.healthcare.gatewayLabAuth.LabAuthPayment;
 
 
 
@@ -35,6 +36,9 @@ public class LabService {
 			break;
 		case "lab":
 			labService = new LabAuthLab();
+			break;
+		case "payment":
+			labService = new LabAuthPayment();
 			break;
 		default:
 			labService = new LabAuthDefault();
