@@ -3,7 +3,10 @@ package com.healthcare.gatewayDoctorAuth;
 import javax.ws.rs.core.Response;
 
 import com.healthcare.gatewayDeatils.DoctorDetails;
-
+/**
+ * @author dyasa
+ *
+ */
 public class DoctorAuthDoctor implements DoctorAuth {
 
 	DoctorR doctorR = new DoctorR();

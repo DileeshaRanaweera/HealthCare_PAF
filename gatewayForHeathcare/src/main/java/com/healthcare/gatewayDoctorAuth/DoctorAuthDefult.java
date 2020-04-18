@@ -3,7 +3,10 @@ package com.healthcare.gatewayDoctorAuth;
 import javax.ws.rs.core.Response;
 
 import com.healthcare.gatewayDeatils.DoctorDetails;
-
+/**
+ * @author dyasa
+ *
+ */
 public class DoctorAuthDefult implements DoctorAuth {
 
 	@Override
