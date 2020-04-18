@@ -111,5 +111,23 @@ public class HttpRequest {
 		}
 
 	}
+	
+	public String GetAppointmentSpecdata() throws Exception {
+		Request request = new Request.Builder().url(ipDetails.getAppoimentIP())
+
+				// request headers
+				.addHeader("key-PAF", "Healthcare").addHeader("Appointments-Profile", "Dileesha").build();
+
+		try (Response response = okHttpClient.newCall(request).execute()) {
+
+			if (!response.isSuccessful())
+				throw new IOException("Unexpected code " + response);
+
+			String responseData = response.body().string();
+			return responseData;
+
+		}
+
+	}
 
 }

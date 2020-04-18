@@ -15,6 +15,8 @@ import com.healthcare.gatewayDoctorAuth.DoctorAuthPAyment;
 import com.healthcare.gatewayDoctorAuth.DoctorAuthUser;
 import com.healthcare.gatewayPaymentsAuth.PaymentsAuth;
 import com.healthcare.gatewayPaymentsAuth.PaymentsAuthAppointment;
+import com.healthcare.gatewayPaymentsAuth.PaymentsAuthDefault;
+import com.healthcare.gatewayPaymentsAuth.PaymentsAuthPayments;
 
 @Path("paymentprof")
 public class PaymentsService {
@@ -29,10 +31,10 @@ public class PaymentsService {
 			paymentsService = new PaymentsAuthAppointment();
 			break;
 		case "payment":
-			paymentsService = new PaymentsAuthAppointment();
+			paymentsService = new PaymentsAuthPayments();
 			break;
 		default:
-			paymentsService = new PaymentsAuthAppointment();
+			paymentsService = new PaymentsAuthDefault();
 			break;
 		}
 		
