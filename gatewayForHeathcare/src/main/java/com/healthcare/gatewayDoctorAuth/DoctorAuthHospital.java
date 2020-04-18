@@ -1,14 +1,18 @@
+/**
+ * 
+ */
 package com.healthcare.gatewayDoctorAuth;
 
 import javax.ws.rs.core.Response;
 
 import com.healthcare.gatewayDeatils.DoctorDetails;
+
 /**
  * @author dyasa
  *
  */
-public class DoctorAuthUser implements DoctorAuth {
-
+public class DoctorAuthHospital  implements DoctorAuth {
+	
 	DoctorR doctorR = new DoctorR();
 
 	@Override
@@ -22,5 +26,5 @@ public class DoctorAuthUser implements DoctorAuth {
 		// TODO Auto-generated method stub
 		return doctorR.postDoctorDetails(doctorDetails);
 	}
-	
+
 }

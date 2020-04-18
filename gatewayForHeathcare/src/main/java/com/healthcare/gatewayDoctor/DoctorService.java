@@ -13,7 +13,10 @@ import com.healthcare.gatewayDoctorAuth.DoctorAuthDefult;
 import com.healthcare.gatewayDoctorAuth.DoctorAuthDoctor;
 import com.healthcare.gatewayDoctorAuth.DoctorAuthPAyment;
 import com.healthcare.gatewayDoctorAuth.DoctorAuthUser;
-
+/**
+ * @author dyasa
+ *
+ */
 @Path("doctorprof")
 public class DoctorService {
 
@@ -33,6 +36,9 @@ public class DoctorService {
 			doctorService = new DoctorAuthUser();
 			break;
 		case "payment":
+			doctorService = new DoctorAuthPAyment();
+			break;
+		case "hospital":
 			doctorService = new DoctorAuthPAyment();
 			break;
 		default:
