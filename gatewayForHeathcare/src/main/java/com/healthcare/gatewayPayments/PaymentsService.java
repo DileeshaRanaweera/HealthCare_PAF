@@ -1,4 +1,4 @@
-package com.healthcare.gatewayDoctor;
+package com.healthcare.gatewayPayments;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -7,54 +7,50 @@ import javax.ws.rs.core.Response;
 
 import com.healthcare.gatewayAuth.AuthFilter;
 import com.healthcare.gatewayDeatils.DoctorDetails;
-import com.healthcare.gatewayDoctorAuth.DoctorAuth;
+import com.healthcare.gatewayDeatils.PaymentsDetails;
 import com.healthcare.gatewayDoctorAuth.DoctorAuthAppointment;
 import com.healthcare.gatewayDoctorAuth.DoctorAuthDefult;
 import com.healthcare.gatewayDoctorAuth.DoctorAuthDoctor;
 import com.healthcare.gatewayDoctorAuth.DoctorAuthPAyment;
 import com.healthcare.gatewayDoctorAuth.DoctorAuthUser;
+import com.healthcare.gatewayPaymentsAuth.PaymentsAuth;
+import com.healthcare.gatewayPaymentsAuth.PaymentsAuthAppointment;
 
-@Path("doctorprof")
-public class DoctorService {
+@Path("paymentprof")
+public class PaymentsService {
 
 	String currentUser;
-	DoctorAuth doctorService;
-
+	PaymentsAuth paymentsService;
+	
 	private void setInterfaces() {
 		currentUser = AuthFilter.CurrentAuth;
 		switch (currentUser) {
 		case "appoinment":
-			doctorService = new DoctorAuthAppointment();
-			break;
-		case "doctor":
-			doctorService = new DoctorAuthDoctor();
-			break;
-		case "user":
-			doctorService = new DoctorAuthUser();
+			paymentsService = new PaymentsAuthAppointment();
 			break;
 		case "payment":
-			doctorService = new DoctorAuthPAyment();
+			paymentsService = new PaymentsAuthAppointment();
 			break;
 		default:
-			doctorService = new DoctorAuthDefult();
+			paymentsService = new PaymentsAuthAppointment();
 			break;
 		}
-
+		
 	}
-
+	
 	@GET
-	public Response getDoctorSpecData() {
+	public Response getPaymentsSpecData() {
 		setInterfaces();
 		System.out.println(currentUser);
 		System.out.println("xxxxxxxxxxxxxxxxxxxx");
-		return doctorService.getDocSpecData();
+		return paymentsService.getPaymentsSpecData();
 	}
 
 	@POST
 	@Path("add")
-	public Response postDoc(DoctorDetails doctorDetails) {
+	public Response postUser(PaymentsDetails details) {
 		setInterfaces();
-		return doctorService.postDoc(doctorDetails);
+		return paymentsService.postPayments(details);
 	}
 
 }

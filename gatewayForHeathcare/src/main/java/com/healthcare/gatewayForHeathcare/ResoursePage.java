@@ -51,6 +51,19 @@ public class ResoursePage {
 				return null;
 			}
 		}
+		
+		@GET
+		@Path("payments")
+		@Produces(MediaType.APPLICATION_JSON)
+		public String getPaymentsSpecification() {
+			try {
+
+				return mycall.GetPaymentsSpecdata();
+			} catch (Exception e) {
+				System.out.println(e);
+				return null;
+			}
+		}
 	}
 
 }

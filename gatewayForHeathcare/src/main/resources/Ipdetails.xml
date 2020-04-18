@@ -5,7 +5,7 @@
 		<user>http://192.168.1.100:8080/User/webapi/users</user>
 		<room>http://192.168.1.10:8080</room>
 		<lab>http://192.168.1.100:8080/laboratory/webapi/labs/</lab>
-		<payment>http://192.168.1.100:8080</payment>
+		<payment>http://192.168.1.100:8080/HealthCare/webapi/payments/</payment>
 		<hospital>http://192.168.1.100:8080</hospital>
 		<appoiment>http://192.168.1.100:8080</appoiment>
 		<gateway>http://192.168.1.100:8080/gatewayForHeathcare/webapi</gateway>
