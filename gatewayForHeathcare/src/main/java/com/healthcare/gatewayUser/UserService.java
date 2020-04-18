@@ -10,9 +10,15 @@ import com.healthcare.gatewayDeatils.UserDetails;
 import com.healthcare.gatewayUser.Auth.UserAuthAppointment;
 import com.healthcare.gatewayUser.Auth.UserAuthDefault;
 import com.healthcare.gatewayUser.Auth.UserAuthDoctor;
+import com.healthcare.gatewayUser.Auth.UserAuthHospital;
 import com.healthcare.gatewayUser.Auth.UserAuthInterface;
+import com.healthcare.gatewayUser.Auth.UserAuthLab;
+import com.healthcare.gatewayUser.Auth.UserAuthPayment;
 import com.healthcare.gatewayUser.Auth.UserAuthUser;
-
+/**
+ * @author kusal
+ *
+ */
 @Path("userprof")
 public class UserService {
 
@@ -30,6 +36,15 @@ public class UserService {
 			break;
 		case "user":
 			userService = new UserAuthUser();
+			break;
+		case "hospital":
+			userService = new UserAuthHospital();
+			break;
+		case "lab":
+			userService = new UserAuthLab();
+			break;
+		case "payment":
+			userService = new UserAuthPayment();
 			break;
 		default:
 			userService = new UserAuthDefault();

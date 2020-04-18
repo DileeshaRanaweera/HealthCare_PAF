@@ -11,8 +11,10 @@ import javax.ws.rs.core.Response;
 import com.healthcare.gatewayDeatils.IpDetails;
 import com.healthcare.gatewayDeatils.IpDetailsClass;
 import com.healthcare.gatewayDeatils.UserDetails;
-
-
+/**
+ * @author kusal
+ *
+ */
 public class UserClient {
 
 	String API;

@@ -8,7 +8,10 @@ import javax.ws.rs.core.MediaType;
 
 import com.healthcare.gatewayDeatils.IpDetails;
 import com.healthcare.gatewayDeatils.IpDetailsClass;
-
+/**
+ * @author kusal
+ *
+ */
 public class LoginClient {
 
 	String API;

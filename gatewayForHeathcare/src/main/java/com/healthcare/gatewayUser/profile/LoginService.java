@@ -6,7 +6,10 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.healthcare.gatewayAuth.AuthFilter;
-
+/**
+ * @author kusal
+ *
+ */
 public class LoginService {
 
 	LoginClient loginClient = new LoginClient();

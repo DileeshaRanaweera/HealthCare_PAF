@@ -1,5 +1,8 @@
 package com.gateway.message;
-
+/**
+ * @author kusal
+ *
+ */
 public class Message {
 
 	public static String Unauthorize = "User Cannot Access the resource"; 
