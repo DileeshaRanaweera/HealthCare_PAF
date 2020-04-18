@@ -4,7 +4,7 @@
         <doctor>http://192.168.1.100:8080/Doctor/webapi/doctors/</doctor> 
 		<user>http://192.168.1.100:8080/User/webapi/users</user>
 		<room>http://192.168.1.10:8080</room>
-		<lab>http://192.168.1.100:8080</lab>
+		<lab>http://192.168.1.100:8080/laboratory/webapi/labs/</lab>
 		<payment>http://192.168.1.100:8080</payment>
 		<hospital>http://192.168.1.100:8080</hospital>
 		<appoiment>http://192.168.1.100:8080</appoiment>

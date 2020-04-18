@@ -56,5 +56,23 @@ public class HttpRequest {
 		}
 
 	}
+	
+	public String GetLabSpecdata() throws Exception {
+		Request request = new Request.Builder().url(ipDetails.getDocIP())
+
+				// request headers
+				.addHeader("key-PAF", "Healthcare").addHeader("Lab-Profile", "Oshadi").build();
+
+		try (Response response = okHttpClient.newCall(request).execute()) {
+
+			if (!response.isSuccessful())
+				throw new IOException("Unexpected code " + response);
+
+			String responseData = response.body().string();
+			return responseData;
+
+		}
+
+	}
 
 }
