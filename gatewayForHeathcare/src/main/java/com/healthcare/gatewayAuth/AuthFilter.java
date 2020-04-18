@@ -27,6 +27,7 @@ public class AuthFilter implements ContainerRequestFilter {
 	public static String CurrentAuthUserDoctorId = "0";
 	public static String CurrentAuthUserAppointmentId = "0";
 	public static String CurrentAuthUserLabAppointmentId = "0";
+	public static String CurrentAuthUserPaymentsAppointmentId = "0";
 
 	@Context
 	private UriInfo info;
@@ -72,6 +73,8 @@ public class AuthFilter implements ContainerRequestFilter {
 			CurrentAuthUserAppointmentId = this.getAppointmentID(arr[1]);
 			//check this for lab appointments
 			CurrentAuthUserLabAppointmentId = this.getLabAppointmentID(arr[1]);
+			//check this for payment appointments
+			CurrentAuthUserPaymentsAppointmentId = this.getPaymentsAppointmentID(arr[1]);
 			
 			
 			return;
@@ -112,6 +115,12 @@ public class AuthFilter implements ContainerRequestFilter {
 	
 	private String getLabAppointmentID(String UserID) {
 		String result[] = client.GetLabAppointmentId(UserID).split(",");
+		return result[0];
+
+	}
+	
+	private String getPaymentsAppointmentID(String UserID) {
+		String result[] = client.GetPaymentsId(UserID).split(",");
 		return result[0];
 
 	}

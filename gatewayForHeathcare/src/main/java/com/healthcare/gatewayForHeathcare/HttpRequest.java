@@ -40,7 +40,7 @@ public class HttpRequest {
 	}
 	
 	public String GetUserSpecdata() throws Exception {
-		Request request = new Request.Builder().url(ipDetails.getDocIP())
+		Request request = new Request.Builder().url(ipDetails.getUserIP())
 
 				// request headers
 				.addHeader("key-PAF", "Healthcare").addHeader("User-Profile", "Kusal").build();
@@ -58,10 +58,28 @@ public class HttpRequest {
 	}
 	
 	public String GetLabSpecdata() throws Exception {
-		Request request = new Request.Builder().url(ipDetails.getDocIP())
+		Request request = new Request.Builder().url(ipDetails.getLabIP())
 
 				// request headers
 				.addHeader("key-PAF", "Healthcare").addHeader("Lab-Profile", "Oshadi").build();
+
+		try (Response response = okHttpClient.newCall(request).execute()) {
+
+			if (!response.isSuccessful())
+				throw new IOException("Unexpected code " + response);
+
+			String responseData = response.body().string();
+			return responseData;
+
+		}
+
+	}
+	
+	public String GetPaymentsSpecdata() throws Exception {
+		Request request = new Request.Builder().url(ipDetails.getPaymentIP())
+
+				// request headers
+				.addHeader("key-PAF", "Healthcare").addHeader("Payments-Profile", "Chanuka").build();
 
 		try (Response response = okHttpClient.newCall(request).execute()) {
 
