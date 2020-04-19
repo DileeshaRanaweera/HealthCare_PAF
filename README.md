@@ -1,9 +1,9 @@
 # HealthCare_PAF
 
-                                                         ===================HEALTH CARE====================
+      ===================HEALTH CARE====================
 
 
-======================================================================TOOS USED TO THE PROJECT =================================================================
+=====TOOS USED TO THE PROJECT ======
 
 USED SERVER: apache tomcat 8.5
 DATA BASE TOOL: mqsql workbecnh tool
@@ -16,7 +16,7 @@ JDK & JRE VERSION: jdk 1.8 and jre 1.8
 JERSEY VERSION: 2.30.1
 PROJECT TYPE: maven project
 
-==============================================================================Branches=========================================================================
+===Branches====
 
 master == Completed error free full project. 
 
@@ -31,7 +31,7 @@ IT18113914_Hospital_Rashmika       == De Silva L.S.R
 IT18114386_Payments_Athalage       == Athalage C.D
 IT18115826__Appointment__Ranaweera == Ranaweera W.G.D.U
 
-====================================================================Chathuranga W.W.P.K IT18119572=============================================================
+=====Chathuranga W.W.P.K IT18119572=====
 
 create database userdb;
 use userdb;
@@ -47,7 +47,8 @@ address varchar(100),
 contact varchar(20),
 password varchar(20) not null
 );
-======================================================================Liyanage D.R.Y IT18119718================================================================
+
+========Liyanage D.R.Y IT18119718========
 
 create database helthcare;
 use helthcare;
@@ -88,7 +89,7 @@ constraint fk2 foreign key(nic) references doctortable(nic)
 );
 
 
-===================================================================== De Silva L.S.R IT18113914==================================================================
+==== De Silva L.S.R IT18113914======
 
 create database test;
 use test;
@@ -116,7 +117,7 @@ Fee varchar(11),
 CONSTRAINT Hospital_pk   PRIMARY KEY(HFeeID, HRegID),
 CONSTRAINT HospitalFee_fk FOREIGN KEY(HRegID) REFERENCES hospital(HRegID)
 )
-=================================================================Oshadi Yashodhika G.B. IT18120226============================================================
+=====Oshadi Yashodhika G.B. IT18120226====
 
 create database test;
 use test;
@@ -147,7 +148,7 @@ CONSTRAINT TestFee_pk PRIMARY KEY (labRegID,TestName),
 CONSTRAINT TestFee_fk FOREIGN KEY(labRegID) REFERENCES lab(labRegID)
 );
 
-==============================================================================Athalage C.D==================================================================
+======Athalage C.D=====
 create database paymentdb
 
 create table paymentdetails(
@@ -161,7 +162,8 @@ PayDate varchar(10),
 Email varchar(50)
 );
 
-============================================================================Ranaweera W.G.D.U================================================================
+=====Ranaweera W.G.D.U=====
+
 CREATE DATABASE appointmentdb;
 
 CREATE TABLE appointmentdoc(
@@ -189,7 +191,7 @@ patientEmail varchar(50),
 patientContact int
 );
 
-=================================================================================Dependency==================================================================
+===Dependency====
 
 dependency used in pom xml for jdbc connecter
 
@@ -208,7 +210,7 @@ dependency used in pom xml for jdbc connecter
 			<version>8.0.19</version>
 		</dependency>
 
-================================================================================Dependency===================================================================
+===Dependency=====
 
  okhttp  and auth in gate way dependency 
 
@@ -229,4 +231,3 @@ dependency used in pom xml for jdbc connecter
 			<version>2.8.0</version>
 		</dependency>
 
-=============================================================================================================================================================
